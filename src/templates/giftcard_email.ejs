@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gift Card Purchase Confirmation</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Add styles to customize the appearance of the email */
+			body {
+				font-family: 'Open Sans', sans-serif;
+				line-height: 1.6;
+				color: #333;
+				margin: 0;
+				padding: 20px;
+			}
+			.container {
+				max-width: 600px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #f9f9f9;
+				border: 1px solid #ddd;
+			}
+			.header,
+			.footer {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.header img {
+				max-width: 100px;
+			}
+			.button {
+				display: inline-block;
+				background-color: #28a745;
+				color: #fff !important;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+				border: none;
+				cursor: pointer;
+			}
+			.footer {
+				font-size: 12px;
+				color: #777;
+			}
+			.giftcards {
+				margin-bottom: 20px;
+			}
+			.giftcard {
+				margin-bottom: 10px;
+				background-color: #fff;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+				padding: 10px;
+			}
+			.giftcard-label {
+				font-weight: bold;
+				display: inline-block;
+				max-width: 300px;
+			}
+			.regards {
+				margin-top: 20px;
+				border-radius: 5px;
+				font-style: italic;
+			}
+			.regards p {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header with company logo -->
+			<div class="header">
+				<img src="<%= logoUrl %>" alt="Company Logo" />
+			</div>
+
+			<!-- Greeting and confirmation message -->
+			<p>Guten Tag <strong><%= receiverName %></strong></p>
+
+			<p>
+				vielen Dank für Ihre Bestellung.Ihren Gutschein können Sie hier
+				herunterladen:
+			</p>
+
+			<!-- Gift card download buttons -->
+			<div class="giftcards">
+				<% giftCardLocations.forEach(function(giftCard, index) { %>
+				<table class="giftcard" width="100%" cellpadding="0" cellspacing="0">
+					<tr style="vertical-align: text-bottom">
+						<td class="giftcard-label">
+							Gutschein <%= index + 1 %> - <%= giftCard.templateName %>
+						</td>
+						<td style="text-align: right">
+							<a
+								href="<%= giftCard.pdfUrl %>"
+								class="button"
+								target="_blank"
+								download
+								>Download</a
+							>
+						</td>
+					</tr>
+				</table>
+				<% }); %>
+				<!-- Repeat for more gift cards -->
+			</div>
+
+			<!-- Instructions or additional information -->
+			<p>
+				Bitte bewahren Sie diese E-Mail für Ihre Unterlagen auf. Sie können Ihre
+				Geschenkkarte verwenden im Geschäft mit der angegebenen Kartennummer und
+				PIN.
+			</p>
+
+			<!-- Regards -->
+			<div class="regards">
+				<p><strong>Mit freundlichen Grüßen,</strong></p>
+				<p>Ihr Team von <%= studioName %></p>
+				<a href="<%=shopUrl %>">website</a>
+			</div>
+
+			<!-- Footer with contact information -->
+			<div class="footer">
+				<p>
+					Bei Fragen wenden Sie sich bitte an unseren Kundenservice unter
+					<a href="mailto:support@thai-massage.de">support@thai-massage.de</a>.
+				</p>
+				<p>
+					&copy; <%= new Date().getFullYear() %> Thai-Massage.de. All rights
+					reserved.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

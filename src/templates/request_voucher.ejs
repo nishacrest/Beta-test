@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Voucher Request</title>
+	</head>
+	<body>
+		<p>Dear <%= receiverName %>,</p>
+
+		<p>
+			Someone wants to purchase a gift card from your studio. Here are the
+			details:
+		</p>
+
+		<ul>
+			<li><strong>Name:</strong> <%= name %></li>
+			<li><strong>Email:</strong> <%= email %></li>
+			<% if (number) { %>
+			<li><strong>Number of Vouchers:</strong> <%= number %></li>
+			<% } %>
+			<li><strong>Value per Voucher:</strong> €<%= value_per_voucher %></li>
+		</ul>
+
+		<% if (message) { %>
+		<p><strong>Additional message:</strong> <%= message %></p>
+		<% } %>
+
+		<p>
+			When you use our gift card software, it's much easier for you to manage
+			gift card sales and boost your revenue. You can sell, track, and redeem
+			vouchers seamlessly
+		</p>
+
+		<p>
+			If you need help setting up the software or have any questions, feel free
+			to reach out to us.
+		</p>
+
+		<p>Best regards,</p>
+		<p>Your Gift Card Support Team</p>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Partial Payment Mail to Studio</title>
+	</head>
+	<body>
+		<p>Dear <%= receiverName %>,</p>
+
+		<p>
+			We received a partial payment for a giftcard order.We notified the
+			customer to finish payment untill the next 6 days.If the payment isn’t
+			completed, we will cancel the order and refund the partial payment
+		</p>
+		<p>Below is details of partial payment:</p>
+		<ul>
+			<li>Total amount: <%= totalAmount %> EUR</li>
+			<li>Received amount: <%= receivedAmount %> EUR</li>
+			<li>To pay: <%= toPay %> EUR</li>
+		</ul>
+
+		<p>Bank Details:</p>
+		<ul>
+			<li>Account holder name: <%= BankDetails.account_holder_name %></li>
+			<li>IBAN: <%= BankDetails.iban %></li>
+			<li>BIC: <%= BankDetails.bic %></li>
+			<li>Reference: <%= BankDetails.reference %></li>
+		</ul>
+
+		<!-- <p>
+			If we do not receive your payment within the next 10 days, your order will
+			be canceled. If you made a partial payment, we will refund the already
+			paid amount.
+		</p>
+
+		<p>Feel free to start a new order anytime.</p> -->
+
+		<p>Thank you for using our service!</p>
+
+		<p>
+			If you have any questions, please contact our customer service team at
+			support@thai-massage.de
+		</p>
+	</body>
+</html>

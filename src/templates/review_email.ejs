@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Review for <%= studioName %></title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .header,
+        .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-width: 100px;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #777;
+        }
+        .regards {
+            margin-top: 20px;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .regards p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="content">
+            <h1>Hello <%= receiverName %>,</h1>
+
+            <p>You have received a new review for your studio: <strong><%= studioName %></strong>.</p>
+
+            <h3>Review Details:</h3>
+            <p><strong>Reviewer Email:</strong> <%= reviewerEmail %></p>
+            <p><strong>Rating:</strong> <%= rating %> / 5</p>
+            <p><strong>Review Text:</strong></p>
+            <blockquote>
+                <%= reviewText %>
+            </blockquote>
+
+            <p>Please visit your admin panel to view more details.</p>
+        </div>
+
+        <div class="regards">
+            <p><strong>Thank you,</strong></p>
+            <p>Your Studio Team</p>
+        </div>
+
+        <div class="footer">
+            <p>
+                For support, please contact:
+                <a href="mailto:support@thai-massage.de">support@thai-massage.de</a>
+            </p>
+            <p>
+                &copy; <%= new Date().getFullYear() %> Thai-Massage.de. All rights
+                reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

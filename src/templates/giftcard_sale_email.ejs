@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>New Gift Card Sale - <%= studioName %></title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: 'Open Sans', sans-serif;
+				line-height: 1.6;
+				color: #333;
+				margin: 0;
+				padding: 20px;
+			}
+			.container {
+				max-width: 600px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #f9f9f9;
+				border: 1px solid #ddd;
+			}
+			.header,
+			.footer {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.header img {
+				max-width: 100px;
+			}
+			.button {
+				display: inline-block;
+				background-color: #28a745;
+				color: #fff !important;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+				border: none;
+				cursor: pointer;
+			}
+			.content {
+				margin-bottom: 20px;
+			}
+			.sale-details {
+				margin-bottom: 20px;
+			}
+			.sale-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 10px;
+			}
+			.sale-table th,
+			.sale-table td {
+				border: 1px solid #ddd;
+				padding: 8px;
+				text-align: left;
+			}
+			.sale-table th {
+				background-color: #f2f2f2;
+			}
+			.footer {
+				font-size: 12px;
+				color: #777;
+			}
+			.regards {
+				margin-top: 20px;
+				border-radius: 5px;
+				font-style: italic;
+			}
+			.regards p {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<img src="<%= logoUrl %>" alt="Logo" />
+			</div>
+
+			<div class="content">
+				<p>Dear <%= studioName %>,</p>
+				<h3>Congratulations on your recent gift card sale!</h3>
+				<p>Here are the details of the transaction:</p>
+			</div>
+
+			<div class="sale-details">
+				<table class="sale-table">
+					<tr>
+						<th>Template Name</th>
+						<th>Quantity</th>
+						<th>Unit price</th>
+						<th>Price</th>
+					</tr>
+					<% invoiceItems.forEach(function(item) { %>
+					<tr>
+						<td><%= item.description %></td>
+						<td><%= item.quantity %></td>
+						<td><%= item.unitPrice %></td>
+						<td><%= item.amount %></td>
+					</tr>
+					<% }); %>
+					<tr>
+						<th colspan="3">Total</th>
+						<td><%= totalAmount %></td>
+					</tr>
+				</table>
+			</div>
+
+			<p>You can download transaction invoice by clicking the button below:</p>
+			<a href="<%= invoiceUrl %>" class="button" download>Download Invoice</a>
+
+			<div class="content">
+				<p>
+					Thank you for using our gift card service. If you have any questions
+					about this sale, please don't hesitate to contact our support team.
+				</p>
+			</div>
+
+			<!-- Regards -->
+			<div class="regards">
+				<p><strong>Regards,</strong></p>
+				<p>Thai-Massage.de Team</p>
+			</div>
+
+			<div class="footer">
+				<p>
+					For support, please contact:
+					<a href="mailto:support@thai-massage.de">support@thai-massage.de</a>
+				</p>
+				<p>
+					&copy; <%= new Date().getFullYear() %> Thai-Massage.de. All rights
+					reserved.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

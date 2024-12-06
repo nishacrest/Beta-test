@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Invoice for Giftcard Handling-Fees</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Add styles to customize the appearance of the email */
+			body {
+				font-family: 'Open Sans', sans-serif;
+				line-height: 1.6;
+				color: #333;
+				margin: 0;
+				padding: 20px;
+			}
+			.container {
+				max-width: 600px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #f9f9f9;
+				border: 1px solid #ddd;
+			}
+			.header,
+			.footer {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			.header img {
+				max-width: 150px;
+			}
+			.button {
+				display: inline-block;
+				background-color: #28a745;
+				color: #fff !important;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+				border: none;
+				cursor: pointer;
+			}
+			.footer {
+				font-size: 12px;
+				color: #777;
+			}
+			.regards {
+				margin-top: 20px;
+				border-radius: 5px;
+				font-style: italic;
+			}
+			.regards p {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header with company logo -->
+			<div class="header">
+				<div class="header">
+					<img src="<%= logoUrl %>" alt="Company Logo" />
+				</div>
+			</div>
+
+			<!-- Greeting and confirmation message -->
+			<p>Dear <strong><%= studioName %></strong>,</p>
+
+			<p>
+				Congratulations. Last month you totally sold giftcard with an amount of
+				<strong><%= totalAmount %></strong>.
+			</p>
+
+			<!-- Invoice details -->
+			<p><strong>Invoice Details:</strong></p>
+			<ul>
+				<li><strong>Invoice number:</strong> <%= invoiceNumber %></li>
+				<li><strong>Date of invoice:</strong> <%= invoiceDate %></li>
+			</ul>
+
+			<p>
+				Today you receive your monthly invoice for handling-fees of you sold
+				giftcards.
+			</p>
+
+			<!-- Link to download the invoice -->
+			<p>You can download your invoice by clicking the button below:</p>
+			<a href="<%= invoiceUrl %>" class="button" download>Download Invoice</a>
+
+			<!-- Closing message -->
+			<p>
+				Thank you for using our gift card service. If you have any questions
+				about this sale, please don't hesitate to contact our support team.
+			</p>
+			<!-- Regards -->
+			<div class="regards">
+				<p><strong>Regards,</strong></p>
+				<p>Thai-Massage.de Team</p>
+			</div>
+
+			<!-- Footer with contact information -->
+			<div class="footer">
+				<p>
+					If you have any questions, please contact our customer service team at
+					<a href="mailto:support@thai-massage.de">support@thai-massage.de</a>.
+				</p>
+				<p>
+					&copy; <%= new Date().getFullYear() %> Thai-Massage.de. All rights
+					reserved.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

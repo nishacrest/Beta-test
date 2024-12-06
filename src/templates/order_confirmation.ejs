@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Order Confirmation</title>
+	<style>
+		.paid-immediate {
+			color: green;
+		}
+		.bank-transfer {
+			color: yellow;
+		}
+		.details-table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+		.details-table th,
+		.details-table td {
+			border: 1px solid black;
+			padding: 8px;
+		}
+		.total-amount {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>Order Confirmation - <%= orderId %></h1>
+
+	<p>Dear <%= receiverName %>,</p>
+
+	<p>Thank you for your purchase. Your order was successful.</p>
+
+	<h2>Order Details</h2>
+	<table class="details-table">
+		<tr>
+			<th>Number</th>
+			<th>Product</th>
+			<th>Unit Price</th>
+			<th>Total Price</th>
+		</tr>
+		<% let totalOrderAmount = 0; for (let i = 0; i < Product.length; i++) { totalOrderAmount += TotalPrice[i]; %>
+		<tr>
+			<td><%= Number[i] %></td>
+			<td>Giftcard - <%= Product[i] %></td>
+			<td><%= UnitPrice[i].toFixed(2) %> €</td>
+			<td><%= TotalPrice[i].toFixed(2) %> €</td>
+		</tr>
+		<% } %>
+	</table>
+
+	<p><strong>Total:</strong> <%= totalOrderAmount.toFixed(2) %> €</p>
+
+	<p>You will receive your gift card and invoice in a separate mail.</p>
+
+	<h2>Bank Details (for bank transfer)</h2>
+	<p>Please transfer the total amount:</p>
+	<p>Name: <%= BankDetails.account_holder_name %></p>
+	<p>IBAN: <%= BankDetails.iban %></p>
+	<p>BIC: <%= BankDetails.bic %></p>
+	<p>Amount: <%= TotalPrice.reduce((acc, val) => acc + val, 0).toFixed(2) %> €</p>
+	<p>Reference: <%= BankDetails.reference %></p>
+
+	<p>
+		You will receive your gift card in a separate mail. It will be activated after the payment is received at our bank. We will send you an email after the successful activation, which will include your invoice as well.
+	</p>
+
+	<p>Thank you for using our service!</p>
+
+	<p>
+		If you have any questions, please contact our customer service team at support@thai-massage.de.
+	</p>
+</body>
+</html>
